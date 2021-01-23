@@ -24,23 +24,25 @@ namespace ExtensionChanger
 
                 if (pressedKey.Key == ConsoleKey.D1 || pressedKey.Key == ConsoleKey.NumPad1)
                 {
-                    var conversion = new Conversion(path, appName);
-                    conversion.ConvertToExe();
+                    var encryption = new Encryption(path, appName);
+                    encryption.EncryptFiles();
+
                 }
                 else if (pressedKey.Key == ConsoleKey.D2 || pressedKey.Key == ConsoleKey.NumPad2)
                 {
-                    var conversion = new Conversion(path, appName);
-                    conversion.ConvertToMp4();
+                    var encryption = new Encryption(path, appName);
+                    encryption.DecryptFiles();
+
                 }
                 else if (pressedKey.Key == ConsoleKey.D3 || pressedKey.Key == ConsoleKey.NumPad3)
                 {
-                    var encryption = new Encryption(path, appName);
-                    encryption.EncryptFiles();
+                    var conversion = new Conversion(path, appName);
+                    conversion.ConvertToExe();
                 }
                 else if (pressedKey.Key == ConsoleKey.D4 || pressedKey.Key == ConsoleKey.NumPad4)
                 {
-                    var encryption = new Encryption(path, appName);
-                    encryption.DecryptFiles();
+                    var conversion = new Conversion(path, appName);
+                    conversion.ConvertToMp4();
                 }
                 else
                 {
@@ -57,7 +59,7 @@ namespace ExtensionChanger
             Console.WriteLine("-------------------------------------------------------------------------------------------------------");
             Console.WriteLine($"Current Directory ({path})");
             Console.WriteLine("-------------------------------------------------------------------------------------------------------");
-            Console.WriteLine("Please Choose an extension to change the files to: \n1) Change to .Exe\n2) Change to .Mp4\n3) Encrypt Files\n4) Decrypt Files\n5) Any other key to EXIT");
+            Console.WriteLine("Please Choose an Option: \n1) Encrypt Files\n2) Decrypt Files\n3) Replace extension with (.exe)\n4) Replace extension with (.mp4)\n5) Any other key to EXIT");
             Console.WriteLine("-------------------------------------------------------------------------------------------------------");
         }
 
@@ -65,10 +67,12 @@ namespace ExtensionChanger
 
     public class GeneralEnums
     {
-        public enum ConvertFilesTo
+        public enum Transformations
         {
-            exe,
-            mp4
+            encrypt = 1,
+            decrypt = 2,
+            exe = 3,
+            mp4 = 4
         }
     }
 }

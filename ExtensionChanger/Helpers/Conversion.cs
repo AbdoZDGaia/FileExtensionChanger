@@ -40,17 +40,17 @@ namespace ExtensionChanger.Helpers
         {
             while (!_validSelection)
                 ReInitialize(common.IterateThroughPath());
-            ConvertItems(_selection, GeneralEnums.ConvertFilesTo.exe);
+            ConvertItems(_selection, GeneralEnums.Transformations.exe);
         }
 
         internal void ConvertToMp4()
         {
             while (!_validSelection)
                 ReInitialize(common.IterateThroughPath());
-            ConvertItems(_selection, GeneralEnums.ConvertFilesTo.mp4);
+            ConvertItems(_selection, GeneralEnums.Transformations.mp4);
         }
 
-        internal void ConvertItems(int ItemNumber, GeneralEnums.ConvertFilesTo convertType)
+        internal void ConvertItems(int ItemNumber, GeneralEnums.Transformations convertType)
         {
             if (ItemNumber == 0)
                 return;
@@ -80,7 +80,7 @@ namespace ExtensionChanger.Helpers
 
         }
 
-        internal void ConvertItem(int ItemNumber, GeneralEnums.ConvertFilesTo convertType)
+        internal void ConvertItem(int ItemNumber, GeneralEnums.Transformations convertType)
         {
             Console.WriteLine($"Converting to {convertType}\n");
 
@@ -98,7 +98,7 @@ namespace ExtensionChanger.Helpers
             }
         }
 
-        internal void ConvertDirectory(GeneralEnums.ConvertFilesTo convertType, string path)
+        internal void ConvertDirectory(GeneralEnums.Transformations convertType, string path)
         {
             var directoryFiles = Directory.GetFiles(path);
             if (directoryFiles.Count() == 0)
@@ -110,7 +110,7 @@ namespace ExtensionChanger.Helpers
             }
         }
 
-        internal void ConvertFile(GeneralEnums.ConvertFilesTo convertType, DirectoryItem fileItem)
+        internal void ConvertFile(GeneralEnums.Transformations convertType, DirectoryItem fileItem)
         {
             var oldName = fileItem.ItemName + fileItem.ItemExtension;
             var newName = fileItem.ItemName + "." + convertType;
@@ -121,7 +121,7 @@ namespace ExtensionChanger.Helpers
             }
         }
 
-        internal bool HasExtension(string file, GeneralEnums.ConvertFilesTo conv)
+        internal bool HasExtension(string file, GeneralEnums.Transformations conv)
         {
             return file.Contains("." + conv.ToString());
         }
