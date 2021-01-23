@@ -72,9 +72,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FileItem.cs" />
+    <Compile Include="Helpers\Common.cs" />
+    <Compile Include="Helpers\Conversion.cs" />
+    <Compile Include="Helpers\Encryption.cs" />
     <Compile Include="Helpers\ItemsConverter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="secrets.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
